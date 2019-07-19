@@ -25,4 +25,7 @@ essentially marking different items like meals, meal-items.
   * https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/setup-credentials.html
 * In Maven Run configuration, set the following environment variable for runner:
   `AWS_PROFILE=fourmeal-dynamo`
-  
+
+### Batch load data - NOT YET IN PLACE
+`aws dynamodb batch-write-item --request-items file://ProductCatalog.json`
+
