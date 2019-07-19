@@ -1,5 +1,6 @@
 package fourmeal.service;
 
+import com.amazonaws.regions.Regions;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
@@ -13,10 +14,10 @@ import java.util.List;
 
 @Service
 public class FourMealService {
-    public static final Logger logger = LoggerFactory.getLogger(FourMealService.class);
+    private static final Logger logger = LoggerFactory.getLogger(FourMealService.class);
 
     public Meal getMeal(String id) {
-        AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().build();
+        AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().withRegion(Regions.US_EAST_1).build();
         DynamoDBMapper mapper = new DynamoDBMapper(client);
 
         Meal retrievedMeal = mapper.load(Meal.class, id);
@@ -26,7 +27,7 @@ public class FourMealService {
 
     public Meal newMeal(Meal newMeal) {
         logger.info("Creating new meal: " + newMeal.getId());
-        AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().build();
+        AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().withRegion(Regions.US_EAST_1).build();
         DynamoDBMapper mapper = new DynamoDBMapper(client);
 
         Meal meal = new Meal();
@@ -42,7 +43,7 @@ public class FourMealService {
 
     public Meal replaceMeal(String id, Meal replaceMeal) {
         logger.debug("Updating meal: " + id);
-        AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().build();
+        AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().withRegion(Regions.US_EAST_1).build();
         DynamoDBMapper mapper = new DynamoDBMapper(client);
 
         Meal meal = new Meal();
@@ -58,7 +59,7 @@ public class FourMealService {
 
     public boolean deleteMeal(String id) {
         logger.debug("Deleting Meal: " + id);
-        AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().build();
+        AmazonDynamoDB client =  AmazonDynamoDBClientBuilder.standard().withRegion(Regions.US_EAST_1).build();
         DynamoDBMapper mapper = new DynamoDBMapper(client);
 
         Meal retrievedMeal = mapper.load(Meal.class, id);
