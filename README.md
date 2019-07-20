@@ -29,3 +29,9 @@ essentially marking different items like meals, meal-items.
 ### Batch load data - NOT YET IN PLACE
 `aws dynamodb batch-write-item --request-items file://ProductCatalog.json`
 
+### Setting up remote repo
+Had to add the following commands (https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-https-unixes.html)
+git config --global credential.UseHttpPath true
+git config --global credential.helper '!aws --profile fourmeal-dynamo codecommit credential-helper $@'
+git remote add origin https://git-codecommit.us-west-1.amazonaws.com/v1/repos/fourmeal
+git push --set-upstream origin master
