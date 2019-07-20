@@ -21,9 +21,8 @@ public class FourMealApi {
 
     /** Running a Dynamo Test **/
     @GetMapping("/test")
-    public String getMealTest() {
-       Meal meal = fourMealService.getMeal("colbywar:pancake-breakfast");
-       return meal.getName();
+    public ResponseEntity getMealTest() {
+       return new ResponseEntity("Greetings from Fourmeal!", HttpStatus.OK);
     }
 
     /** Add a New Meal **/
