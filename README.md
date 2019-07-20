@@ -35,3 +35,4 @@ git config --global credential.UseHttpPath true
 git config --global credential.helper '!aws --profile fourmeal-dynamo codecommit credential-helper $@'
 git remote add origin https://git-codecommit.us-west-1.amazonaws.com/v1/repos/fourmeal
 git push --set-upstream origin master
+(When prompted in a push, choose Deny, otherwise reference URL above to fix Keychain -- Thanks Mac!)

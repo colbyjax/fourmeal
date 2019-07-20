@@ -22,7 +22,7 @@ public class FourMealApi {
     /** Running a Dynamo Test **/
     @GetMapping("/test")
     public ResponseEntity getMealTest() {
-       return new ResponseEntity("Greetings from Fourmeal!", HttpStatus.OK);
+       return new ResponseEntity("Heeeelllooo from Fourmeal!", HttpStatus.OK);
     }
 
     /** Add a New Meal **/
