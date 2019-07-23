@@ -15,6 +15,7 @@ public class FourMealService {
     private static final Logger logger = LoggerFactory.getLogger(FourMealService.class);
 
     public Meal getMeal(String id) {
+        logger.info("Retrieving meal: " + id);
         Meal retrievedMeal = FourMealService.getMapper().load(Meal.class, id);
 
         return retrievedMeal;
@@ -35,7 +36,7 @@ public class FourMealService {
     }
 
     public Meal replaceMeal(String id, Meal replaceMeal) {
-        logger.debug("Updating meal: " + id);
+        logger.info("Updating meal: " + id);
 
         Meal meal = new Meal();
         meal.setId(id);
@@ -49,7 +50,7 @@ public class FourMealService {
     }
 
     public boolean deleteMeal(String id) {
-        logger.debug("Deleting Meal: " + id);
+        logger.info("Deleting Meal: " + id);
 
         Meal retrievedMeal = FourMealService.getMapper().load(Meal.class, id);
         FourMealService.getMapper().delete(retrievedMeal);

@@ -2,6 +2,8 @@ package fourmeal.rest;
 
 import fourmeal.domain.Meal;
 import fourmeal.service.FourMealService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,6 +12,8 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class FourMealApi {
+    private static final Logger logger = LoggerFactory.getLogger(FourMealApi.class);
+
     @Autowired
     private FourMealService fourMealService;
 
@@ -22,6 +26,7 @@ public class FourMealApi {
     /** Running a Dynamo Test **/
     @GetMapping("/test")
     public ResponseEntity getMealTest() {
+       logger.info("FourMeal Service Test running correctly");
        return new ResponseEntity("Greetings from Fourmeal", HttpStatus.OK);
     }
 
