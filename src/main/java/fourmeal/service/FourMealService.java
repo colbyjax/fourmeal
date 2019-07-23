@@ -58,6 +58,32 @@ public class FourMealService {
         return true;
     }
 
+    public String cpuStress(long repeats) {
+        long count = 0;
+        for(long i=0; i < repeats; i++) {
+            boolean result = isPrime(i);
+            if (result) {
+                count++;
+            }
+        }
+        String result = "Stress Test found " + count + " prime numbers when repeating count " + repeats + " times.";
+        logger.info(result);
+        return result;
+    }
+
+    /**
+     * Determine if a number is prime -- used for CPU Stress Test
+     * @param n
+     * @return
+     */
+    private boolean isPrime(long n) {
+        for(long i=2;i<n;i++) {
+            if(n%i==0)
+                return false;
+        }
+        return true;
+    }
+
     /***
      * Helper method to build connection and return Dyanamo Mapper
      * @return

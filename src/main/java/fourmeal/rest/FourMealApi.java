@@ -62,6 +62,14 @@ public class FourMealApi {
         return new ResponseEntity("Success", HttpStatus.OK);
     }
 
+    /** Running a CPU Stress Test **/
+    @GetMapping("/cpu-stress")
+    public ResponseEntity getMealTest(@RequestParam long repeats) {
+        logger.info("Running CPU Stress Test " + repeats + " times...");
+        String result = fourMealService.cpuStress(repeats);
+        return new ResponseEntity(result, HttpStatus.OK);
+    }
+
     /*
      * addMealToUser - Add Meal to the user document
      * addListToUser - Add List to the user document

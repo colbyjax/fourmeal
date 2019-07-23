@@ -31,3 +31,78 @@
 2019-07-23 15:11:27.646  INFO 24163 --- [http-nio-5000-exec-2] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
 2019-07-23 15:11:27.669  INFO 24163 --- [http-nio-5000-exec-2] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 23 ms
 2019-07-23 15:11:27.705  INFO 24163 --- [http-nio-5000-exec-2] fourmeal.rest.FourMealApi                : FourMeal Service Test running correctly
+2019-07-23 16:30:03.247  INFO 36152 --- [main] fourmeal.Application                     : Starting Application on 8c85902171e8.ant.amazon.com with PID 36152 (/Users/colbywar/Dropbox/dev/spring/fourmeal/target/classes started by colbywar in /Users/colbywar/Dropbox/dev/spring/fourmeal)
+2019-07-23 16:30:03.252  INFO 36152 --- [main] fourmeal.Application                     : No active profile set, falling back to default profiles: default
+2019-07-23 16:30:03.310  INFO 36152 --- [main] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@1029b38d: startup date [Tue Jul 23 16:30:03 CDT 2019]; root of context hierarchy
+2019-07-23 16:30:04.841  INFO 36152 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 5000 (http)
+2019-07-23 16:30:04.911  INFO 36152 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-07-23 16:30:04.912  INFO 36152 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.34
+2019-07-23 16:30:04.926  INFO 36152 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/colbywar/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+2019-07-23 16:30:05.025  INFO 36152 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-07-23 16:30:05.026  INFO 36152 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1716 ms
+2019-07-23 16:30:05.111  INFO 36152 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2019-07-23 16:30:05.116  INFO 36152 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2019-07-23 16:30:05.116  INFO 36152 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2019-07-23 16:30:05.116  INFO 36152 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2019-07-23 16:30:05.117  INFO 36152 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2019-07-23 16:30:05.284  INFO 36152 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-07-23 16:30:05.497  INFO 36152 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@1029b38d: startup date [Tue Jul 23 16:30:03 CDT 2019]; root of context hierarchy
+2019-07-23 16:30:05.605  INFO 36152 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/],methods=[GET]}" onto public org.springframework.http.ResponseEntity fourmeal.rest.FourMealApi.index()
+2019-07-23 16:30:05.606  INFO 36152 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/meal],methods=[GET]}" onto public fourmeal.domain.Meal fourmeal.rest.FourMealApi.getMeal(java.lang.String)
+2019-07-23 16:30:05.607  INFO 36152 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/meal],methods=[PUT]}" onto public fourmeal.domain.Meal fourmeal.rest.FourMealApi.replaceMeal(java.lang.String,fourmeal.domain.Meal)
+2019-07-23 16:30:05.607  INFO 36152 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/meal/{id}],methods=[DELETE]}" onto public org.springframework.http.ResponseEntity fourmeal.rest.FourMealApi.deleteMeal(java.lang.String)
+2019-07-23 16:30:05.607  INFO 36152 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/meal],methods=[POST]}" onto public fourmeal.domain.Meal fourmeal.rest.FourMealApi.newMeal(fourmeal.domain.Meal)
+2019-07-23 16:30:05.608  INFO 36152 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/cpu-stress],methods=[GET]}" onto public org.springframework.http.ResponseEntity fourmeal.rest.FourMealApi.getMealTest(long)
+2019-07-23 16:30:05.608  INFO 36152 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/test],methods=[GET]}" onto public org.springframework.http.ResponseEntity fourmeal.rest.FourMealApi.getMealTest()
+2019-07-23 16:30:05.611  INFO 36152 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2019-07-23 16:30:05.612  INFO 36152 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2019-07-23 16:30:05.669  INFO 36152 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-07-23 16:30:05.670  INFO 36152 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-07-23 16:30:05.893  INFO 36152 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2019-07-23 16:30:05.952  INFO 36152 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 5000 (http) with context path ''
+2019-07-23 16:30:05.957  INFO 36152 --- [main] fourmeal.Application                     : Started Application in 3.684 seconds (JVM running for 9.622)
+2019-07-23 16:31:46.014  INFO 36152 --- [http-nio-5000-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2019-07-23 16:31:46.015  INFO 36152 --- [http-nio-5000-exec-2] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2019-07-23 16:31:46.036  INFO 36152 --- [http-nio-5000-exec-2] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 21 ms
+2019-07-23 16:31:46.073  INFO 36152 --- [http-nio-5000-exec-2] fourmeal.rest.FourMealApi                : Running CPU Stress Test 10000 times...
+2019-07-23 16:31:46.125  INFO 36152 --- [http-nio-5000-exec-2] fourmeal.service.FourMealService         : Stress Test found 1231 prime numbers when repeating count 10000 times.
+2019-07-23 16:32:17.738  INFO 36152 --- [http-nio-5000-exec-3] fourmeal.rest.FourMealApi                : Running CPU Stress Test 100000 times...
+2019-07-23 16:32:21.893  INFO 36152 --- [http-nio-5000-exec-3] fourmeal.service.FourMealService         : Stress Test found 9594 prime numbers when repeating count 100000 times.
+2019-07-23 16:33:13.951  INFO 36152 --- [http-nio-5000-exec-4] fourmeal.rest.FourMealApi                : Running CPU Stress Test 1000000 times...
+2019-07-23 16:37:35.633  INFO 36587 --- [main] fourmeal.Application                     : Starting Application on 8c85902171e8.ant.amazon.com with PID 36587 (/Users/colbywar/Dropbox/dev/spring/fourmeal/target/classes started by colbywar in /Users/colbywar/Dropbox/dev/spring/fourmeal)
+2019-07-23 16:37:35.637  INFO 36587 --- [main] fourmeal.Application                     : No active profile set, falling back to default profiles: default
+2019-07-23 16:37:35.832  INFO 36587 --- [main] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@7cac173d: startup date [Tue Jul 23 16:37:35 CDT 2019]; root of context hierarchy
+2019-07-23 16:37:37.643  INFO 36587 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 5000 (http)
+2019-07-23 16:37:37.680  INFO 36587 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-07-23 16:37:37.680  INFO 36587 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.34
+2019-07-23 16:37:37.689  INFO 36587 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/colbywar/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+2019-07-23 16:37:37.786  INFO 36587 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-07-23 16:37:37.787  INFO 36587 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1954 ms
+2019-07-23 16:37:37.886  INFO 36587 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2019-07-23 16:37:37.891  INFO 36587 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2019-07-23 16:37:37.892  INFO 36587 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2019-07-23 16:37:37.892  INFO 36587 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2019-07-23 16:37:37.892  INFO 36587 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2019-07-23 16:37:38.129  INFO 36587 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-07-23 16:37:38.368  INFO 36587 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@7cac173d: startup date [Tue Jul 23 16:37:35 CDT 2019]; root of context hierarchy
+2019-07-23 16:37:38.480  INFO 36587 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/],methods=[GET]}" onto public org.springframework.http.ResponseEntity fourmeal.rest.FourMealApi.index()
+2019-07-23 16:37:38.482  INFO 36587 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/meal],methods=[POST]}" onto public fourmeal.domain.Meal fourmeal.rest.FourMealApi.newMeal(fourmeal.domain.Meal)
+2019-07-23 16:37:38.483  INFO 36587 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/meal],methods=[GET]}" onto public fourmeal.domain.Meal fourmeal.rest.FourMealApi.getMeal(java.lang.String)
+2019-07-23 16:37:38.483  INFO 36587 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/cpu-stress],methods=[GET]}" onto public org.springframework.http.ResponseEntity fourmeal.rest.FourMealApi.getMealTest(long)
+2019-07-23 16:37:38.483  INFO 36587 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/test],methods=[GET]}" onto public org.springframework.http.ResponseEntity fourmeal.rest.FourMealApi.getMealTest()
+2019-07-23 16:37:38.483  INFO 36587 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/meal],methods=[PUT]}" onto public fourmeal.domain.Meal fourmeal.rest.FourMealApi.replaceMeal(java.lang.String,fourmeal.domain.Meal)
+2019-07-23 16:37:38.484  INFO 36587 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/meal/{id}],methods=[DELETE]}" onto public org.springframework.http.ResponseEntity fourmeal.rest.FourMealApi.deleteMeal(java.lang.String)
+2019-07-23 16:37:38.487  INFO 36587 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2019-07-23 16:37:38.488  INFO 36587 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2019-07-23 16:37:38.535  INFO 36587 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-07-23 16:37:38.536  INFO 36587 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-07-23 16:37:38.731  INFO 36587 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2019-07-23 16:37:38.783  INFO 36587 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 5000 (http) with context path ''
+2019-07-23 16:37:38.787  INFO 36587 --- [main] fourmeal.Application                     : Started Application in 3.74 seconds (JVM running for 7.823)
+2019-07-23 16:37:58.713  INFO 36587 --- [http-nio-5000-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2019-07-23 16:37:58.713  INFO 36587 --- [http-nio-5000-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2019-07-23 16:37:58.732  INFO 36587 --- [http-nio-5000-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 19 ms
+2019-07-23 16:37:58.770  INFO 36587 --- [http-nio-5000-exec-1] fourmeal.rest.FourMealApi                : Running CPU Stress Test 200000 times...
+2019-07-23 16:38:13.719  INFO 36587 --- [http-nio-5000-exec-1] fourmeal.service.FourMealService         : Stress Test found 17986 prime numbers when repeating count 200000 times.
+2019-07-23 16:38:31.966  INFO 36587 --- [http-nio-5000-exec-3] fourmeal.rest.FourMealApi                : Running CPU Stress Test 400000 times...
+2019-07-23 16:39:25.481  INFO 36587 --- [http-nio-5000-exec-3] fourmeal.service.FourMealService         : Stress Test found 33862 prime numbers when repeating count 400000 times.
