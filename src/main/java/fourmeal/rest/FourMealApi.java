@@ -15,14 +15,14 @@ public class FourMealApi {
 
     /** Base Call to ensure API is responding **/
     @GetMapping("/")
-    public String index() {
-        return "Greetings from Fourmeal!";
+    public ResponseEntity index() {
+        return new ResponseEntity("OK", HttpStatus.OK);
     }
 
     /** Running a Dynamo Test **/
     @GetMapping("/test")
     public ResponseEntity getMealTest() {
-       return new ResponseEntity("Greeting Aadil!", HttpStatus.OK);
+       return new ResponseEntity("Greetings from Fourmeal", HttpStatus.OK);
     }
 
     /** Add a New Meal **/
