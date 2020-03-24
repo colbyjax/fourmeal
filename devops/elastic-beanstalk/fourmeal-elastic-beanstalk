@@ -1,0 +1,131 @@
+AWSTemplateFormatVersion: 2010-09-09
+Metadata:
+  'AWS::CloudFormation::Designer':
+    c80c0f87-40ae-476e-bd81-e1ae32462552:
+      size:
+        width: 470
+        height: 230
+      position:
+        x: 340
+        'y': 10
+      z: 0
+      embeds:
+        - de2c89af-7b56-4caa-b584-7229f95d9b96
+        - 099244fc-365d-4f2a-a866-6529786a6917
+    de2c89af-7b56-4caa-b584-7229f95d9b96:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 364
+        'y': 31
+      z: 1
+      parent: c80c0f87-40ae-476e-bd81-e1ae32462552
+      embeds: []
+      iscontainedinside:
+        - c80c0f87-40ae-476e-bd81-e1ae32462552
+        - c80c0f87-40ae-476e-bd81-e1ae32462552
+        - c80c0f87-40ae-476e-bd81-e1ae32462552
+    099244fc-365d-4f2a-a866-6529786a6917:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 520
+        'y': 30
+      z: 1
+      parent: c80c0f87-40ae-476e-bd81-e1ae32462552
+      iscontainedinside:
+        - c80c0f87-40ae-476e-bd81-e1ae32462552
+Resources:
+  FourMeal:
+    Type: 'AWS::ElasticBeanstalk::Application'
+    Properties: {}
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: c80c0f87-40ae-476e-bd81-e1ae32462552
+  fourmealApplicationVersion:
+    Type: 'AWS::ElasticBeanstalk::ApplicationVersion'
+    Properties:
+      ApplicationName: !Ref FourMeal
+      SourceBundle:
+        S3Bucket: fourmeal-us-west-2
+        S3Key: deploy/fourmeal-1.1.0.jar
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: de2c89af-7b56-4caa-b584-7229f95d9b96
+  fourMealEnvironment:
+    Type: 'AWS::ElasticBeanstalk::Environment'
+    Properties:
+      ApplicationName: !Ref FourMeal
+      Description: High availability environment for Fourmeal
+      SolutionStackName: 64bit Amazon Linux 2018.03 v2.8.6 running Java 8
+      Tier:
+        Name: WebServer
+        Type: Standard
+        Version: '1.0'
+      OptionSettings:
+        - Namespace: 'aws:autoscaling:asg'
+          OptionName: MaxSize
+          Value: '3'
+        - Namespace: 'aws:autoscaling:asg'
+          OptionName: MinSize
+          Value: '2'
+        - Namespace: 'aws:autoscaling:launchconfiguration'
+          OptionName: IamInstanceProfile
+          Value: aws-elasticbeanstalk-ec2-role
+        - Namespace: 'aws:autoscaling:trigger'
+          OptionName: BreachDuration
+          Value: '1'
+        - Namespace: 'aws:autoscaling:trigger'
+          OptionName: LowerThreshold
+          Value: '15'
+        - Namespace: 'aws:autoscaling:trigger'
+          OptionName: MeasureName
+          Value: CPUUtilization
+        - Namespace: 'aws:autoscaling:trigger'
+          OptionName: Period
+          Value: '1'
+        - Namespace: 'aws:autoscaling:trigger'
+          OptionName: Unit
+          Value: Percent
+        - Namespace: 'aws:autoscaling:trigger'
+          OptionName: UpperThreshold
+          Value: '25'
+        - Namespace: 'aws:autoscaling:updatepolicy:rollingupdate'
+          OptionName: RollingUpdateEnabled
+          Value: 'false'
+        - Namespace: 'aws:elasticbeanstalk:application:environment'
+          OptionName: GRADLE_HOME
+          Value: /usr/local/gradle
+        - Namespace: 'aws:elasticbeanstalk:application:environment'
+          OptionName: JAVA_HOME
+          Value: /usr/lib/jvm/java
+        - Namespace: 'aws:elasticbeanstalk:application:environment'
+          OptionName: M2
+          Value: /usr/local/apache-maven/bin
+        - Namespace: 'aws:elasticbeanstalk:application:environment'
+          OptionName: M2_HOME
+          Value: /usr/local/apache-maven
+        - Namespace: 'aws:elasticbeanstalk:cloudwatch:logs'
+          OptionName: RetentionInDays
+          Value: '3'
+        - Namespace: 'aws:elasticbeanstalk:cloudwatch:logs'
+          OptionName: StreamLogs
+          Value: 'true'
+        - Namespace: 'aws:elasticbeanstalk:environment'
+          OptionName: LoadBalancerType
+          Value: application
+        - Namespace: 'aws:elasticbeanstalk:environment'
+          OptionName: ServiceRole
+          Value: aws-elasticbeanstalk-service-role
+        - Namespace: 'aws:elasticbeanstalk:healthreporting:system'
+          OptionName: ConfigDocument
+          Value: >-
+            {"Version":1,"CloudWatchMetrics":{"Instance":{"CPUIrq":null,"LoadAverage5min":null,"ApplicationRequests5xx":null,"ApplicationRequests4xx":null,"CPUUser":null,"LoadAverage1min":null,"ApplicationLatencyP50":null,"CPUIdle":null,"InstanceHealth":null,"ApplicationLatencyP95":null,"ApplicationLatencyP85":null,"RootFilesystemUtil":null,"ApplicationLatencyP90":null,"CPUSystem":null,"ApplicationLatencyP75":null,"CPUSoftirq":null,"ApplicationLatencyP10":null,"ApplicationLatencyP99":null,"ApplicationRequestsTotal":null,"ApplicationLatencyP99.9":null,"ApplicationRequests3xx":null,"ApplicationRequests2xx":null,"CPUIowait":null,"CPUNice":null},"Environment":{"InstancesSevere":null,"InstancesDegraded":null,"ApplicationRequests5xx":null,"ApplicationRequests4xx":null,"ApplicationLatencyP50":null,"ApplicationLatencyP95":null,"ApplicationLatencyP85":null,"InstancesUnknown":null,"ApplicationLatencyP90":null,"InstancesInfo":null,"InstancesPending":null,"ApplicationLatencyP75":null,"ApplicationLatencyP10":null,"ApplicationLatencyP99":null,"ApplicationRequestsTotal":null,"InstancesNoData":null,"ApplicationLatencyP99.9":null,"ApplicationRequests3xx":null,"ApplicationRequests2xx":null,"InstancesOk":null,"InstancesWarning":null}}}
+        - Namespace: 'aws:elasticbeanstalk:healthreporting:system'
+          OptionName: SystemType
+          Value: enhanced
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: 099244fc-365d-4f2a-a866-6529786a6917

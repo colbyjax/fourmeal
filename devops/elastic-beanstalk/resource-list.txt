@@ -1,0 +1,23 @@
+List of Artifacts
++ Elastic Beanstalk Environment
+  - Configuration
+  - Load Balancer, Trigger Rules
+  - IAM Service Role (EC2)
++ Code Pipeline
++ Code Build
++ Code Commit
++ S3
++ CloudWatch
+  - Logs
+  - Metrics
+  - Dashboards
+  
++ IAM
+  + Users
+  
+  + Roles
+  - aws-elasticbeanstalk-ec2-role
+  - aws-elasticbeanstalk-service-role
+  
+  + Policies
++ DynamoDB
