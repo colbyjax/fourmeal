@@ -89,7 +89,7 @@ public class FourMealService {
      * @return
      */
     private static DynamoDBMapper getMapper() {
-        AmazonDynamoDB client =  AmazonDynamoDBClientBuilder.standard().withRegion(Regions.US_WEST_1).build();
+        AmazonDynamoDB client =  AmazonDynamoDBClientBuilder.standard().withRegion(Regions.US_EAST_2).build();
         DynamoDBMapper mapper = new DynamoDBMapper(client);
 
         return mapper;

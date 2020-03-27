@@ -1,6 +1,26 @@
 ##Overview
 This AWS methodology will provision EC2 instances to serve fourmeal API.  
 
+### Quickstart
+* Create Stack vpc-cloud-formation.yaml
+* Create Key Pair for accessing EC2
+  - Create Key Pair
+  `ssh-keygen -t rsa -C "aws-api-key" -f ~/.ssh/aws-api-key`
+  - Import key into EC2
+  `aws ec2 import-key-pair --key-name "aws-api-key" --public-key-material fileb://./aws-api-key.pub`
+  - Add to your ssh so you can ssh forward the keys through the bastion
+  `ssh-add -K aws-api-key`
+  - Ensure port forwarding enabled .ssh/config
+  ```
+  Host example.com
+    ForwardAgent yes
+  ```
+* Create Stack ec2-cloud-formation.yaml
+* Connect to your bastion via ssh
+ - Bounce to your internal private subnet instances from the Bastion shell (ssh to internal ip)
+ - Problems reference this: https://developer.github.com/v3/guides/using-ssh-agent-forwarding/
+
+
 ##Manual Steps (POC -- will be replaced by Cloud Formation)
 1. Copy jar file and Amazon Coretto to S3
 2. Create role for ec2

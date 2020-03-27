@@ -1,34 +1,150 @@
+Parameters:
+  NetworkStackName:
+    Type: String
+    Default: VPCStack
+  ApiKeyName:
+    Type: String
+    Default: "aws-api-key"
 Resources:
+  APIRole:
+    Type: "AWS::IAM::Role"
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: "Allow"
+            Principal:
+              Service:
+                - "ec2.amazonaws.com"
+            Action:
+              - "sts:AssumeRole"
+      Path: "/"
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy
+        - arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess
+        - arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess
   InstanceProfile:
     Type: AWS::IAM::InstanceProfile
     Properties:
       Path: "/"
       Roles:
-        - fourmeal-api-application-user-role
-  Ec2Instance:
+        - !Ref APIRole
+  # Create Bastion Host
+  PublicEc2Instance:
     Type: "AWS::EC2::Instance"
     Properties:
-      SecurityGroups:
-        - !Ref InstanceSecurityGroup
-      KeyName: fourmeal-application-keys
+      KeyName: !Ref ApiKeyName
       ImageId: ami-0e01ce4ee18447327
+      SecurityGroupIds:
+        - Fn::ImportValue:
+           !Sub "${NetworkStackName}-PublicSecurityGroupID"
+      SubnetId:
+        Fn::ImportValue:
+          !Sub "${NetworkStackName}-PublicSubnetID"
+      InstanceType: t2.micro
+      IamInstanceProfile:
+        Ref: InstanceProfile
+      Tags:
+        -
+          Key: "Name"
+          Value: "Bastion - Public EC2 Instance"
+  # Create Elastic IP that points to Public EC2
+  ElasticIP:
+    Type: AWS::EC2::EIP
+    Properties:
+      InstanceId: !Ref PublicEc2Instance
+  # Create Private EC2 Instances
+  PrivateEc2Instance1:
+    Type: "AWS::EC2::Instance"
+    Properties:
+      KeyName: !Ref ApiKeyName
+      ImageId: ami-0e01ce4ee18447327
+      SecurityGroupIds:
+        - Fn::ImportValue:
+            !Sub "${NetworkStackName}-PrivateSecurityGroupID"
+      SubnetId:
+        Fn::ImportValue:
+          !Sub "${NetworkStackName}-PrivateSubnetID"
       InstanceType: t2.micro
       IamInstanceProfile:
         Ref: InstanceProfile
       UserData:
         Fn::Base64:
           !Sub |
-            #!/bin/bash
-            aws s3 sync s3://fourmeal-colbywar /home/ec2-user
-            tar -xzf /home/ec2-user/amazon-corretto-11-x64-linux-jdk.tar.gz -C /opt
-            export PATH=/opt/amazon-corretto-11.0.6.10.1-linux-x64/bin:$PATH
-            nohup java -jar /home/ec2-user/fourmeal-1.1.0.jar &
-  InstanceSecurityGroup:
-    Type: AWS::EC2::SecurityGroup
+          #!/bin/bash
+          aws s3 sync s3://fourmeal-colbywar /home/ec2-user
+          tar -xzf /home/ec2-user/amazon-corretto-11-x64-linux-jdk.tar.gz -C /opt
+          export PATH=/opt/amazon-corretto-11.0.6.10.1-linux-x64/bin:$PATH
+          nohup java -jar /home/ec2-user/fourmeal-1.1.0.jar &
+      Tags:
+        -
+          Key: "Name"
+          Value: "Private EC2 Instance 1"
+  PrivateEc2Instance2:
+    Type: "AWS::EC2::Instance"
     Properties:
-      GroupDescription: Allow http to client host
-      SecurityGroupIngress:
-        - IpProtocol: tcp
-          FromPort: 22
-          ToPort: 22
-          CidrIp: 0.0.0.0/0
+      KeyName: !Ref ApiKeyName
+      ImageId: ami-0e01ce4ee18447327
+      SecurityGroupIds:
+        - Fn::ImportValue:
+            !Sub "${NetworkStackName}-PrivateSecurityGroupID"
+      SubnetId:
+        Fn::ImportValue:
+          !Sub "${NetworkStackName}-PrivateSubnetID"
+      InstanceType: t2.micro
+      IamInstanceProfile:
+        Ref: InstanceProfile
+      UserData:
+        Fn::Base64:
+          !Sub |
+          #!/bin/bash
+          aws s3 sync s3://fourmeal-colbywar /home/ec2-user
+          tar -xzf /home/ec2-user/amazon-corretto-11-x64-linux-jdk.tar.gz -C /opt
+          export PATH=/opt/amazon-corretto-11.0.6.10.1-linux-x64/bin:$PATH
+          nohup java -jar /home/ec2-user/fourmeal-1.1.0.jar &
+      Tags:
+        - Key: "Name"
+          Value: "Private EC2 Instance 2"
+  # Create Network Load balancer to balance requests in the private network
+  NetworkLoadBalancer:
+    Type: AWS::ElasticLoadBalancingV2::LoadBalancer
+    Properties:
+      Name: api-networkloadbalancer
+      IpAddressType: ipv4
+      Scheme: internal
+      Subnets:
+        -
+          Fn::ImportValue:
+            !Sub "${NetworkStackName}-PrivateSubnetID"
+      Type: network
+      Tags:
+        -
+          Key: "Name"
+          Value: "api-networkloadbalancer"
+  # Balance Load between the 2 private instances
+  NetworkLoadBalancerTargetGroup:
+    Type: AWS::ElasticLoadBalancingV2::TargetGroup
+    Properties:
+      Name: api-nlb-target
+      Port: 5000
+      Protocol: TCP
+      VpcId:
+        Fn::ImportValue:
+          !Sub "${NetworkStackName}-VPCID"
+      Targets:
+        - Id: !Ref PrivateEc2Instance1
+          Port: 5000
+        - Id: !Ref PrivateEc2Instance2
+          Port: 5000
+      Tags:
+        - Key: Name
+          Value: api-nlb-target
+  NetworkLoadBalancerListener:
+    Type: AWS::ElasticLoadBalancingV2::Listener
+    Properties:
+      DefaultActions:
+          - Type: forward
+            TargetGroupArn: !Ref NetworkLoadBalancerTargetGroup
+      LoadBalancerArn: !Ref NetworkLoadBalancer
+      Port: '5000'
+      Protocol: TCP

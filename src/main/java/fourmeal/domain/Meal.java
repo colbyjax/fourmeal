@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.*;
 
-@DynamoDBTable(tableName="MEALS")
+@DynamoDBTable(tableName="Meal")
 public class Meal {
 
     private String id;

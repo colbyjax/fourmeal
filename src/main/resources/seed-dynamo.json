@@ -1,0 +1,109 @@
+{
+  "Meal": [
+    {
+      "PutRequest": {
+        "Item": {
+          "id": {
+            "S": "colbywar:spaghetti-dinner"
+          },
+          "name": {
+            "S": "Spaghetti Dinner"
+          },
+          "extras": {
+            "L": [
+              {
+                "S": "oregano"
+              },
+              {
+                "S": "italian seasoning"
+              },
+              {
+                "S": "celery salt"
+              },
+              {
+                "S": "parmesan cheese"
+              }
+            ]
+          },
+          "tags": {
+            "L": [
+              {
+                "S": "dinner"
+              },
+              {
+                "S": "kids"
+              }
+            ]
+          },
+          "mealitem": {
+            "M": {
+              "name": {
+                "S": "spaghetti noodles"
+              },
+              "quantity": {
+                "S": "1"
+              },
+              "tags": {
+                "S": "main"
+              },
+              "units": {
+                "S": "box"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "id": {
+            "S": "colbywar:taco-dinner"
+          },
+          "name": {
+            "S": "Taco Dinner"
+          },
+          "extras": {
+            "L": [
+              {
+                "S": "taco seasoning"
+              },
+              {
+                "S": "hot sauce"
+              },
+              {
+                "S": "sour cream"
+              }
+            ]
+          },
+          "tags": {
+            "L": [
+              {
+                "S": "dinner"
+              },
+              {
+                "S": "kids"
+              }
+            ]
+          },
+          "mealitem": {
+            "M": {
+              "name": {
+                "S": "ground beef"
+              },
+              "quantity": {
+                "S": "1"
+              },
+              "tags": {
+                "S": "main"
+              },
+              "units": {
+                "S": "pound"
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

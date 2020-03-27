@@ -1,3 +1,10 @@
+# TODO
+- S3 files not available to burner account
+- Add AAPI Gateway CloudFormation
+- Add Dynamo Cloud Formation
+
+ 
+
 # FourMeal API
 Service designed to store meals along with their ingredients in an informal manner.  Tags are a first class citizen, 
 essentially marking different items like meals, meal-items.
@@ -11,6 +18,9 @@ essentially marking different items like meals, meal-items.
 * "mealitem"[] -  similar to an ingredient, but more informal, you mark units as whatever you want 
              such as "box","pack", "jar", "oz"
   * attributes: "name", "quantity", "tags", "units"
+* Two places where dynamo is configured:
+  - FourMealService - Ensure `Regions.US_EAST_2` is set to correct region
+  - domain/Meal - This is where the table itself is mapped - Ensure table name correct **CASE_SENSITIVE**
  
             
 
@@ -20,6 +30,9 @@ essentially marking different items like meals, meal-items.
   - mvn spring-boot:run // it uses maven spring plugin to build and execute
   - quick test: http://localhost:5000/test 
 * Uses AWS SDK.  Primarily accessing DynamoDB
+* To ssh bounce from public host (bastion) to private subnet must have ssh forwarding:
+https://developer.github.com/v3/guides/using-ssh-agent-forwarding/
+* Can use `scp` to copy from public to private host without any special routing
 
 ### AWS Info
 * Using credentials at ~/.aws (Default Provider Chain)
@@ -28,8 +41,8 @@ essentially marking different items like meals, meal-items.
 * In Maven Run configuration, set the following environment variable for runner:
   `AWS_PROFILE=fourmeal-dynamo`
 
-### Batch load data - NOT YET IN PLACE
-`aws dynamodb batch-write-item --request-items file://ProductCatalog.json`
+### Batch load data 
+`aws dynamodb batch-write-item --request-items file://seed-dynamo.json`
 
 ### Setting up remote repo
 Had to add the following commands (https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-https-unixes.html)

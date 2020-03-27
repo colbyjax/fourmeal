@@ -1,0 +1,186 @@
+# Reference: https://docs.aws.amazon.com/vpc/latest/userguide/vpc-subnets-commands-example-ipv6.html
+# Reference: https://sookocheff.com/post/aws/how-to-create-a-vpc-using-cloudformation/
+# Reference: https://www.infoq.com/articles/aws-vpc-cloudformation/
+Resources:
+  VPC:
+    Type: AWS::EC2::VPC
+    Properties:
+      CidrBlock: 10.0.0.0/16
+      EnableDnsSupport: true
+      EnableDnsHostnames: true
+      InstanceTenancy: default
+      Tags:
+        -
+          Key: "Name"
+          Value: "Custom VPC"
+  # Create the Public Subnet
+  SubnetPublic:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId:
+        Ref: VPC
+      CidrBlock: 10.0.0.0/24
+      AvailabilityZone: "us-east-2b"
+      Tags:
+        -
+          Key: "Name"
+          Value: "Public Subnet 10.0.0.0"
+  # Create the Private Subnet
+  SubnetPrivate:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId:
+        Ref: VPC
+      CidrBlock: 10.0.1.0/24
+      AvailabilityZone: "us-east-2b"
+      Tags:
+        -
+          Key: "Name"
+          Value: "Private Subnet 10.0.1.0"
+  # Create Internet Gateway and Link to VPC
+  InternetGateway:
+    Type: AWS::EC2::InternetGateway
+  VPCGatewayAttachment:
+    Type: AWS::EC2::VPCGatewayAttachment
+    Properties:
+      VpcId: !Ref VPC
+      InternetGatewayId: !Ref InternetGateway
+  # Define the NAT that will live in the Public subnet, but allow access from private subnet
+  NATGateway:
+    Type: AWS::EC2::NatGateway
+    Properties:
+      AllocationId:
+        Fn::GetAtt:
+          - NATGatewayEIP
+          - AllocationId
+      SubnetId: !Ref SubnetPublic
+      Tags:
+        - Key: Name
+          Value: NAT Gateway
+  NATGatewayEIP:
+    DependsOn: VPCGatewayAttachment
+    Type: AWS::EC2::EIP
+    Properties:
+      Domain: VPC
+  # Define Route Table and Routes
+  PublicRouteTable:
+    Type: AWS::EC2::RouteTable
+    Properties:
+      VpcId: !Ref VPC
+      Tags:
+        -
+          Key: "Name"
+          Value: "Public Route Table"
+  # Create the Internet Route and associate with Internet Gateway
+  InternetRoute:
+    Type: AWS::EC2::Route
+    DependsOn: VPCGatewayAttachment
+    Properties:
+      DestinationCidrBlock: 0.0.0.0/0
+      GatewayId: !Ref InternetGateway
+      RouteTableId: !Ref PublicRouteTable
+  PublicSubnetRouteTableAssociation:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      RouteTableId: !Ref PublicRouteTable
+      SubnetId: !Ref SubnetPublic
+  # Create Private Route Table
+  PrivateRouteTable:
+    Type: AWS::EC2::RouteTable
+    Properties:
+      VpcId: !Ref VPC
+      Tags:
+        - Key: Name
+          Value: Private Route Table
+  # Create Private route to NAT Gateway
+  PrivateRoute:
+    Type: AWS::EC2::Route
+    Properties:
+      RouteTableId: !Ref PrivateRouteTable
+      DestinationCidrBlock: 0.0.0.0/0
+      # Route traffic through the NAT Gateway:
+      NatGatewayId: !Ref NATGateway
+  PrivateSubnetRouteTableAssociation:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      RouteTableId: !Ref PrivateRouteTable
+      SubnetId: !Ref SubnetPrivate
+  # Security Group to access Public Subnet
+  PublicSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupName: "Public Security Group"
+      GroupDescription: "SSH traffic in, all traffic out."
+      VpcId: !Ref VPC
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: '22'
+          ToPort: '22'
+          CidrIp: 0.0.0.0/0
+      SecurityGroupEgress:
+        - IpProtocol: -1
+          CidrIp: 0.0.0.0/0
+      Tags:
+        -
+          Key: "Name"
+          Value: "Public Subnet Security Group"
+  # Security Group to access Private Subnet from Public Subnet
+  PrivateSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupName: "Private Security Group"
+      GroupDescription: "Security Group allowing traffic from Public Subnet to Private"
+      VpcId: !Ref VPC
+      SecurityGroupIngress:
+        - # SSH
+          IpProtocol: tcp
+          FromPort: '22'
+          ToPort: '22'
+          CidrIp: 10.0.0.0/16
+        - # API Port
+          IpProtocol: tcp
+          FromPort: '5000'
+          ToPort: '5000'
+          CidrIp: 10.0.0.0/16
+      Tags:
+        -
+          Key: "Name"
+          Value: "Private Subnet Security Group"
+
+# Define Outputs from this template that can be imported into other templates as variables (e.g. ec2-cloud-formation.yaml)
+Outputs:
+  VPCId:
+    Description: "VPC ID"
+    Value:
+      Ref: VPC
+    Export:
+      Name:
+        "Fn::Sub": "${AWS::StackName}-VPCID"
+  PublicSubnet:
+    Description: "The subnet ID to use for public web servers"
+    Value:
+      Ref: SubnetPublic
+    Export:
+      Name:
+        "Fn::Sub": "${AWS::StackName}-PublicSubnetID"
+  PrivateSubnet:
+    Description: "The subnet ID to use for private API Stack"
+    Value:
+      Ref: SubnetPrivate
+    Export:
+      Name:
+        "Fn::Sub": "${AWS::StackName}-PrivateSubnetID"
+  PublicSecurityGroup:
+    Description: "Security Group for Public Subnet Access"
+    Value:
+      Ref: PublicSecurityGroup
+    Export:
+      Name:
+        "Fn::Sub": "${AWS::StackName}-PublicSecurityGroupID"
+  PrivateSecurityGroup:
+    Description: "Security Group for Private Subnet Access"
+    Value:
+      Ref: PrivateSecurityGroup
+    Export:
+      Name:
+        "Fn::Sub": "${AWS::StackName}-PrivateSecurityGroupID"
