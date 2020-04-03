@@ -17,17 +17,11 @@ public class FourMealApi {
     @Autowired
     private FourMealService fourMealService;
 
-    /** Base Call to ensure API is responding **/
-    @GetMapping("/")
-    public ResponseEntity index() {
-        return new ResponseEntity("OK", HttpStatus.OK);
-    }
-
-    /** Running a Dynamo Test **/
-    @GetMapping("/test")
-    public ResponseEntity getMealTest() {
-       logger.info("FourMeal Service Test running correctly");
-       return new ResponseEntity("Greetings from Fourmeal", HttpStatus.OK);
+    /** Base Call to ensure API is responding -- Healthcheck **/
+    @GetMapping("/ping")
+    public ResponseEntity healthCheck() {
+       logger.info("FourMeal playing ping pong");
+       return new ResponseEntity("pong", HttpStatus.OK);
     }
 
     /** Add a New Meal **/

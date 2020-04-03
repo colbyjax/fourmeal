@@ -54,7 +54,8 @@ git push --set-upstream origin master
 
 ### Docker Notes
 * Build Image - docker build -t fourmeal-app .
-* Run image to test it - docker run -p 80:80 fourmeal-app
+* Run image to test it - docker run -p 5000:5000 --name fourmeal -d colbywar/fourmeal-app
+  - curl http://localhost:5000/ping -- Should return with pong
 * Tag image - docker tag fourmeal-app 757095936153.dkr.ecr.us-west-1.amazonaws.com/fourmeal-repository
 * Do an AWS logging via cli to ECR - aws ecr get-login --no-include-email --region us-west-1 --profile fourmeal-dynamo
   * Run output
