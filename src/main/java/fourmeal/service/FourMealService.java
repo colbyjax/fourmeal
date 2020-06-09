@@ -1,5 +1,6 @@
 package fourmeal.service;
 
+import com.amazonaws.regions.Region;
 import com.amazonaws.regions.Regions;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class FourMealService {
     private static final Logger logger = LoggerFactory.getLogger(FourMealService.class);
+    public static final Regions DYNAMO_REGION = Regions.US_WEST_1;
 
     public Meal getMeal(String id) {
         logger.info("Retrieving meal: " + id);
@@ -89,7 +91,7 @@ public class FourMealService {
      * @return
      */
     private static DynamoDBMapper getMapper() {
-        AmazonDynamoDB client =  AmazonDynamoDBClientBuilder.standard().withRegion(Regions.US_EAST_2).build();
+        AmazonDynamoDB client =  AmazonDynamoDBClientBuilder.standard().withRegion(DYNAMO_REGION).build();
         DynamoDBMapper mapper = new DynamoDBMapper(client);
 
         return mapper;

@@ -1,33 +1,337 @@
-2020-03-25 17:11:13.307  INFO 10888 --- [main] fourmeal.Application                     : Starting Application on f8ffc24c7eba.ant.amazon.com with PID 10888 (/Users/colbywar/Dropbox/dev/spring/fourmeal/target/classes started by colbywar in /Users/colbywar/Dropbox/dev/spring/fourmeal)
-2020-03-25 17:11:13.315  INFO 10888 --- [main] fourmeal.Application                     : No active profile set, falling back to default profiles: default
-2020-03-25 17:11:13.353  INFO 10888 --- [main] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@2c8c5c11: startup date [Wed Mar 25 17:11:13 CDT 2020]; root of context hierarchy
-2020-03-25 17:11:14.401  INFO 10888 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 5000 (http)
-2020-03-25 17:11:14.431  INFO 10888 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-03-25 17:11:14.432  INFO 10888 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.34
-2020-03-25 17:11:14.441  INFO 10888 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/colbywar/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
-2020-03-25 17:11:14.521  INFO 10888 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2020-03-25 17:11:14.521  INFO 10888 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1168 ms
-2020-03-25 17:11:14.568  INFO 10888 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
-2020-03-25 17:11:14.571  INFO 10888 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
-2020-03-25 17:11:14.571  INFO 10888 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
-2020-03-25 17:11:14.571  INFO 10888 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
-2020-03-25 17:11:14.572  INFO 10888 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
-2020-03-25 17:11:14.701  INFO 10888 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-2020-03-25 17:11:14.842  INFO 10888 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@2c8c5c11: startup date [Wed Mar 25 17:11:13 CDT 2020]; root of context hierarchy
-2020-03-25 17:11:14.922  INFO 10888 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/],methods=[GET]}" onto public org.springframework.http.ResponseEntity fourmeal.rest.FourMealApi.index()
-2020-03-25 17:11:14.923  INFO 10888 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/cpu-stress],methods=[GET]}" onto public org.springframework.http.ResponseEntity fourmeal.rest.FourMealApi.getMealTest(long)
-2020-03-25 17:11:14.923  INFO 10888 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/test],methods=[GET]}" onto public org.springframework.http.ResponseEntity fourmeal.rest.FourMealApi.getMealTest()
-2020-03-25 17:11:14.923  INFO 10888 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/meal],methods=[POST]}" onto public fourmeal.domain.Meal fourmeal.rest.FourMealApi.newMeal(fourmeal.domain.Meal)
-2020-03-25 17:11:14.923  INFO 10888 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/meal],methods=[GET]}" onto public fourmeal.domain.Meal fourmeal.rest.FourMealApi.getMeal(java.lang.String)
-2020-03-25 17:11:14.924  INFO 10888 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/meal],methods=[PUT]}" onto public fourmeal.domain.Meal fourmeal.rest.FourMealApi.replaceMeal(java.lang.String,fourmeal.domain.Meal)
-2020-03-25 17:11:14.924  INFO 10888 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/meal/{id}],methods=[DELETE]}" onto public org.springframework.http.ResponseEntity fourmeal.rest.FourMealApi.deleteMeal(java.lang.String)
-2020-03-25 17:11:14.926  INFO 10888 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
-2020-03-25 17:11:14.927  INFO 10888 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
-2020-03-25 17:11:14.944  INFO 10888 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-2020-03-25 17:11:14.947  INFO 10888 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-2020-03-25 17:11:15.052  INFO 10888 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
-2020-03-25 17:11:15.102  INFO 10888 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 5000 (http) with context path ''
-2020-03-25 17:11:15.107  INFO 10888 --- [main] fourmeal.Application                     : Started Application in 2.317 seconds (JVM running for 6.076)
-2020-03-25 17:11:32.928  INFO 10888 --- [http-nio-5000-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
-2020-03-25 17:11:32.929  INFO 10888 --- [http-nio-5000-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
-2020-03-25 17:11:32.945  INFO 10888 --- [http-nio-5000-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 16 ms
+2020-06-09 00:58:41.565  INFO 40525 --- [main] fourmeal.Application                     : Starting Application on f8ffc24c7eba.ant.amazon.com with PID 40525 (/Users/colbywar/Dropbox/dev/spring/fourmeal/target/classes started by colbywar in /Users/colbywar/Dropbox/dev/spring/fourmeal)
+2020-06-09 00:58:41.572  INFO 40525 --- [main] fourmeal.Application                     : No active profile set, falling back to default profiles: default
+2020-06-09 00:58:41.612  INFO 40525 --- [main] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@47981594: startup date [Tue Jun 09 00:58:41 CDT 2020]; root of context hierarchy
+2020-06-09 00:58:42.556  INFO 40525 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 5000 (http)
+2020-06-09 00:58:42.580  INFO 40525 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-06-09 00:58:42.580  INFO 40525 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.34
+2020-06-09 00:58:42.591  INFO 40525 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/colbywar/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+2020-06-09 00:58:42.658  INFO 40525 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-06-09 00:58:42.658  INFO 40525 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1046 ms
+2020-06-09 00:58:42.702  INFO 40525 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2020-06-09 00:58:42.706  INFO 40525 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2020-06-09 00:58:42.706  INFO 40525 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2020-06-09 00:58:42.706  INFO 40525 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2020-06-09 00:58:42.706  INFO 40525 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2020-06-09 00:58:42.817  INFO 40525 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-06-09 00:58:42.943  INFO 40525 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@47981594: startup date [Tue Jun 09 00:58:41 CDT 2020]; root of context hierarchy
+2020-06-09 00:58:43.004  INFO 40525 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/ping],methods=[GET]}" onto public org.springframework.http.ResponseEntity fourmeal.rest.FourMealApi.healthCheck()
+2020-06-09 00:58:43.005  INFO 40525 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/meal],methods=[POST]}" onto public fourmeal.domain.Meal fourmeal.rest.FourMealApi.newMeal(fourmeal.domain.Meal)
+2020-06-09 00:58:43.006  INFO 40525 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/meal],methods=[GET]}" onto public fourmeal.domain.Meal fourmeal.rest.FourMealApi.getMeal(java.lang.String)
+2020-06-09 00:58:43.006  INFO 40525 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/meal],methods=[PUT]}" onto public fourmeal.domain.Meal fourmeal.rest.FourMealApi.replaceMeal(java.lang.String,fourmeal.domain.Meal)
+2020-06-09 00:58:43.006  INFO 40525 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/meal/{id}],methods=[DELETE]}" onto public org.springframework.http.ResponseEntity fourmeal.rest.FourMealApi.deleteMeal(java.lang.String)
+2020-06-09 00:58:43.006  INFO 40525 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/cpu-stress],methods=[GET]}" onto public org.springframework.http.ResponseEntity fourmeal.rest.FourMealApi.getMealTest(long)
+2020-06-09 00:58:43.008  INFO 40525 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2020-06-09 00:58:43.009  INFO 40525 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2020-06-09 00:58:43.024  INFO 40525 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-06-09 00:58:43.025  INFO 40525 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-06-09 00:58:43.131  INFO 40525 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2020-06-09 00:58:43.188  INFO 40525 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 5000 (http) with context path ''
+2020-06-09 00:58:43.193  INFO 40525 --- [main] fourmeal.Application                     : Started Application in 2.086 seconds (JVM running for 6.989)
+2020-06-09 00:59:00.569  INFO 40525 --- [http-nio-5000-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2020-06-09 00:59:00.570  INFO 40525 --- [http-nio-5000-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2020-06-09 00:59:00.584  INFO 40525 --- [http-nio-5000-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 14 ms
+2020-06-09 00:59:00.608  INFO 40525 --- [http-nio-5000-exec-1] fourmeal.rest.FourMealApi                : FourMeal playing ping pong
+2020-06-09 00:59:18.170  INFO 40525 --- [http-nio-5000-exec-3] fourmeal.service.FourMealService         : Retrieving meal: colbywar:spaghetti-dinner
+2020-06-09 00:59:20.743 ERROR 40525 --- [http-nio-5000-exec-3] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is com.amazonaws.SdkClientException: Unable to load AWS credentials from any provider in the chain: [EnvironmentVariableCredentialsProvider: Unable to load AWS credentials from environment variables (AWS_ACCESS_KEY_ID (or AWS_ACCESS_KEY) and AWS_SECRET_KEY (or AWS_SECRET_ACCESS_KEY)), SystemPropertiesCredentialsProvider: Unable to load AWS credentials from Java system properties (aws.accessKeyId and aws.secretKey), com.amazonaws.auth.profile.ProfileCredentialsProvider@59a68e8e: No AWS profile named 'default', com.amazonaws.auth.EC2ContainerCredentialsProviderWrapper@568f6738: Unable to load credentials from service endpoint]] with root cause
+
+com.amazonaws.SdkClientException: Unable to load AWS credentials from any provider in the chain: [EnvironmentVariableCredentialsProvider: Unable to load AWS credentials from environment variables (AWS_ACCESS_KEY_ID (or AWS_ACCESS_KEY) and AWS_SECRET_KEY (or AWS_SECRET_ACCESS_KEY)), SystemPropertiesCredentialsProvider: Unable to load AWS credentials from Java system properties (aws.accessKeyId and aws.secretKey), com.amazonaws.auth.profile.ProfileCredentialsProvider@59a68e8e: No AWS profile named 'default', com.amazonaws.auth.EC2ContainerCredentialsProviderWrapper@568f6738: Unable to load credentials from service endpoint]
+	at com.amazonaws.auth.AWSCredentialsProviderChain.getCredentials(AWSCredentialsProviderChain.java:136) ~[aws-java-sdk-core-1.11.523.jar:na]
+	at com.amazonaws.http.AmazonHttpClient$RequestExecutor.getCredentialsFromContext(AmazonHttpClient.java:1225) ~[aws-java-sdk-core-1.11.523.jar:na]
+	at com.amazonaws.http.AmazonHttpClient$RequestExecutor.runBeforeRequestHandlers(AmazonHttpClient.java:801) ~[aws-java-sdk-core-1.11.523.jar:na]
+	at com.amazonaws.http.AmazonHttpClient$RequestExecutor.doExecute(AmazonHttpClient.java:751) ~[aws-java-sdk-core-1.11.523.jar:na]
+	at com.amazonaws.http.AmazonHttpClient$RequestExecutor.executeWithTimer(AmazonHttpClient.java:744) ~[aws-java-sdk-core-1.11.523.jar:na]
+	at com.amazonaws.http.AmazonHttpClient$RequestExecutor.execute(AmazonHttpClient.java:726) ~[aws-java-sdk-core-1.11.523.jar:na]
+	at com.amazonaws.http.AmazonHttpClient$RequestExecutor.access$500(AmazonHttpClient.java:686) ~[aws-java-sdk-core-1.11.523.jar:na]
+	at com.amazonaws.http.AmazonHttpClient$RequestExecutionBuilderImpl.execute(AmazonHttpClient.java:668) ~[aws-java-sdk-core-1.11.523.jar:na]
+	at com.amazonaws.http.AmazonHttpClient.execute(AmazonHttpClient.java:532) ~[aws-java-sdk-core-1.11.523.jar:na]
+	at com.amazonaws.http.AmazonHttpClient.execute(AmazonHttpClient.java:512) ~[aws-java-sdk-core-1.11.523.jar:na]
+	at com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient.doInvoke(AmazonDynamoDBClient.java:4230) ~[aws-java-sdk-dynamodb-1.11.523.jar:na]
+	at com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient.invoke(AmazonDynamoDBClient.java:4197) ~[aws-java-sdk-dynamodb-1.11.523.jar:na]
+	at com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient.executeGetItem(AmazonDynamoDBClient.java:2032) ~[aws-java-sdk-dynamodb-1.11.523.jar:na]
+	at com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient.getItem(AmazonDynamoDBClient.java:1999) ~[aws-java-sdk-dynamodb-1.11.523.jar:na]
+	at com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper.load(DynamoDBMapper.java:415) ~[aws-java-sdk-dynamodb-1.11.523.jar:na]
+	at com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper.load(DynamoDBMapper.java:432) ~[aws-java-sdk-dynamodb-1.11.523.jar:na]
+	at com.amazonaws.services.dynamodbv2.datamodeling.AbstractDynamoDBMapper.load(AbstractDynamoDBMapper.java:80) ~[aws-java-sdk-dynamodb-1.11.523.jar:na]
+	at fourmeal.service.FourMealService.getMeal(FourMealService.java:21) ~[classes/:na]
+	at fourmeal.rest.FourMealApi.getMeal(FourMealApi.java:39) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:209) ~[spring-web-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:136) ~[spring-web-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102) ~[spring-webmvc-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:891) ~[spring-webmvc-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:797) ~[spring-webmvc-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:991) ~[spring-webmvc-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:925) ~[spring-webmvc-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:974) ~[spring-webmvc-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:866) ~[spring-webmvc-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:635) ~[tomcat-embed-core-8.5.34.jar:8.5.34]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:851) ~[spring-webmvc-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742) ~[tomcat-embed-core-8.5.34.jar:8.5.34]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[tomcat-embed-core-8.5.34.jar:8.5.34]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.34.jar:8.5.34]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52) ~[tomcat-embed-websocket-8.5.34.jar:8.5.34]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.34.jar:8.5.34]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.34.jar:8.5.34]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99) ~[spring-web-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.34.jar:8.5.34]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.34.jar:8.5.34]
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:109) ~[spring-web-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.34.jar:8.5.34]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.34.jar:8.5.34]
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93) ~[spring-web-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.34.jar:8.5.34]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.34.jar:8.5.34]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200) ~[spring-web-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.34.jar:8.5.34]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.34.jar:8.5.34]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198) ~[tomcat-embed-core-8.5.34.jar:8.5.34]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) ~[tomcat-embed-core-8.5.34.jar:8.5.34]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:493) ~[tomcat-embed-core-8.5.34.jar:8.5.34]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140) ~[tomcat-embed-core-8.5.34.jar:8.5.34]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81) ~[tomcat-embed-core-8.5.34.jar:8.5.34]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87) ~[tomcat-embed-core-8.5.34.jar:8.5.34]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342) ~[tomcat-embed-core-8.5.34.jar:8.5.34]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:800) ~[tomcat-embed-core-8.5.34.jar:8.5.34]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66) ~[tomcat-embed-core-8.5.34.jar:8.5.34]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:806) ~[tomcat-embed-core-8.5.34.jar:8.5.34]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1498) ~[tomcat-embed-core-8.5.34.jar:8.5.34]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-8.5.34.jar:8.5.34]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) ~[na:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-8.5.34.jar:8.5.34]
+	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
+
+2020-06-09 01:02:27.111  INFO 40614 --- [main] fourmeal.Application                     : Starting Application on f8ffc24c7eba.ant.amazon.com with PID 40614 (/Users/colbywar/Dropbox/dev/spring/fourmeal/target/classes started by colbywar in /Users/colbywar/Dropbox/dev/spring/fourmeal)
+2020-06-09 01:02:27.114  INFO 40614 --- [main] fourmeal.Application                     : No active profile set, falling back to default profiles: default
+2020-06-09 01:02:27.147  INFO 40614 --- [main] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@5b32a56f: startup date [Tue Jun 09 01:02:27 CDT 2020]; root of context hierarchy
+2020-06-09 01:02:28.040  INFO 40614 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 5000 (http)
+2020-06-09 01:02:28.062  INFO 40614 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-06-09 01:02:28.062  INFO 40614 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.34
+2020-06-09 01:02:28.070  INFO 40614 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/colbywar/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+2020-06-09 01:02:28.166  INFO 40614 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-06-09 01:02:28.166  INFO 40614 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1019 ms
+2020-06-09 01:02:28.213  INFO 40614 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2020-06-09 01:02:28.216  INFO 40614 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2020-06-09 01:02:28.217  INFO 40614 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2020-06-09 01:02:28.217  INFO 40614 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2020-06-09 01:02:28.217  INFO 40614 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2020-06-09 01:02:28.325  INFO 40614 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-06-09 01:02:28.457  INFO 40614 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@5b32a56f: startup date [Tue Jun 09 01:02:27 CDT 2020]; root of context hierarchy
+2020-06-09 01:02:28.520  INFO 40614 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/ping],methods=[GET]}" onto public org.springframework.http.ResponseEntity fourmeal.rest.FourMealApi.healthCheck()
+2020-06-09 01:02:28.521  INFO 40614 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/meal],methods=[POST]}" onto public fourmeal.domain.Meal fourmeal.rest.FourMealApi.newMeal(fourmeal.domain.Meal)
+2020-06-09 01:02:28.522  INFO 40614 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/meal],methods=[GET]}" onto public fourmeal.domain.Meal fourmeal.rest.FourMealApi.getMeal(java.lang.String)
+2020-06-09 01:02:28.522  INFO 40614 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/meal],methods=[PUT]}" onto public fourmeal.domain.Meal fourmeal.rest.FourMealApi.replaceMeal(java.lang.String,fourmeal.domain.Meal)
+2020-06-09 01:02:28.522  INFO 40614 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/meal/{id}],methods=[DELETE]}" onto public org.springframework.http.ResponseEntity fourmeal.rest.FourMealApi.deleteMeal(java.lang.String)
+2020-06-09 01:02:28.523  INFO 40614 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/cpu-stress],methods=[GET]}" onto public org.springframework.http.ResponseEntity fourmeal.rest.FourMealApi.getMealTest(long)
+2020-06-09 01:02:28.526  INFO 40614 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2020-06-09 01:02:28.526  INFO 40614 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2020-06-09 01:02:28.548  INFO 40614 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-06-09 01:02:28.548  INFO 40614 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-06-09 01:02:28.659  INFO 40614 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2020-06-09 01:02:28.704  INFO 40614 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 5000 (http) with context path ''
+2020-06-09 01:02:28.708  INFO 40614 --- [main] fourmeal.Application                     : Started Application in 1.998 seconds (JVM running for 4.705)
+2020-06-09 01:02:36.059  INFO 40614 --- [http-nio-5000-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2020-06-09 01:02:36.059  INFO 40614 --- [http-nio-5000-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2020-06-09 01:02:36.073  INFO 40614 --- [http-nio-5000-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 14 ms
+2020-06-09 01:02:36.099  INFO 40614 --- [http-nio-5000-exec-1] fourmeal.service.FourMealService         : Retrieving meal: colbywar:spaghetti-dinner
+2020-06-09 01:03:08.208  INFO 40614 --- [http-nio-5000-exec-3] fourmeal.service.FourMealService         : Retrieving meal: colbywar:spaghetti-dinner
+2020-06-09 01:03:21.492  INFO 40614 --- [http-nio-5000-exec-4] fourmeal.rest.FourMealApi                : FourMeal playing ping pong
+2020-06-09 01:04:23.677  INFO 40614 --- [http-nio-5000-exec-7] fourmeal.service.FourMealService         : Creating new meal: colbywar:test-dinner-1
+2020-06-09 01:05:02.454  INFO 40614 --- [Thread-3] ConfigServletWebServerApplicationContext : Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@5b32a56f: startup date [Tue Jun 09 01:02:27 CDT 2020]; root of context hierarchy
+2020-06-09 01:05:02.457  INFO 40614 --- [Thread-3] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2020-06-09 09:35:47.284  INFO 55521 --- [main] fourmeal.Application                     : Starting Application on f8ffc24c7eba.ant.amazon.com with PID 55521 (/Users/colbywar/Dropbox/dev/spring/fourmeal/target/classes started by colbywar in /Users/colbywar/Dropbox/dev/spring/fourmeal)
+2020-06-09 09:35:47.287  INFO 55521 --- [main] fourmeal.Application                     : No active profile set, falling back to default profiles: default
+2020-06-09 09:35:47.325  INFO 55521 --- [main] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@d97e22a: startup date [Tue Jun 09 09:35:47 CDT 2020]; root of context hierarchy
+2020-06-09 09:35:48.472  INFO 55521 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 5000 (http)
+2020-06-09 09:35:48.505  INFO 55521 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-06-09 09:35:48.505  INFO 55521 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.34
+2020-06-09 09:35:48.519  INFO 55521 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/colbywar/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+2020-06-09 09:35:48.621  INFO 55521 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-06-09 09:35:48.622  INFO 55521 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1296 ms
+2020-06-09 09:35:48.686  INFO 55521 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2020-06-09 09:35:48.691  INFO 55521 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2020-06-09 09:35:48.691  INFO 55521 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2020-06-09 09:35:48.691  INFO 55521 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2020-06-09 09:35:48.692  INFO 55521 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2020-06-09 09:35:48.831  INFO 55521 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-06-09 09:35:48.999  INFO 55521 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@d97e22a: startup date [Tue Jun 09 09:35:47 CDT 2020]; root of context hierarchy
+2020-06-09 09:35:49.077  INFO 55521 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/cpu-stress],methods=[GET]}" onto public org.springframework.http.ResponseEntity fourmeal.rest.FourMealApi.getMealTest(long)
+2020-06-09 09:35:49.078  INFO 55521 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/meal],methods=[POST]}" onto public fourmeal.domain.Meal fourmeal.rest.FourMealApi.newMeal(fourmeal.domain.Meal)
+2020-06-09 09:35:49.079  INFO 55521 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/ping],methods=[GET]}" onto public org.springframework.http.ResponseEntity fourmeal.rest.FourMealApi.healthCheck()
+2020-06-09 09:35:49.079  INFO 55521 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/meal],methods=[GET]}" onto public fourmeal.domain.Meal fourmeal.rest.FourMealApi.getMeal(java.lang.String)
+2020-06-09 09:35:49.079  INFO 55521 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/meal],methods=[PUT]}" onto public fourmeal.domain.Meal fourmeal.rest.FourMealApi.replaceMeal(java.lang.String,fourmeal.domain.Meal)
+2020-06-09 09:35:49.080  INFO 55521 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/meal/{id}],methods=[DELETE]}" onto public org.springframework.http.ResponseEntity fourmeal.rest.FourMealApi.deleteMeal(java.lang.String)
+2020-06-09 09:35:49.082  INFO 55521 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2020-06-09 09:35:49.082  INFO 55521 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2020-06-09 09:35:49.106  INFO 55521 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-06-09 09:35:49.107  INFO 55521 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-06-09 09:35:49.233  INFO 55521 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2020-06-09 09:35:49.303  INFO 55521 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 5000 (http) with context path ''
+2020-06-09 09:35:49.309  INFO 55521 --- [main] fourmeal.Application                     : Started Application in 2.627 seconds (JVM running for 6.866)
+2020-06-09 09:36:00.857  INFO 55521 --- [http-nio-5000-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2020-06-09 09:36:00.858  INFO 55521 --- [http-nio-5000-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2020-06-09 09:36:00.879  INFO 55521 --- [http-nio-5000-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 21 ms
+2020-06-09 09:36:00.909  INFO 55521 --- [http-nio-5000-exec-1] fourmeal.service.FourMealService         : Retrieving meal: colbywar:spaghetti-dinner
+2020-06-09 09:36:03.491 ERROR 55521 --- [http-nio-5000-exec-1] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is com.amazonaws.SdkClientException: Unable to load AWS credentials from any provider in the chain: [EnvironmentVariableCredentialsProvider: Unable to load AWS credentials from environment variables (AWS_ACCESS_KEY_ID (or AWS_ACCESS_KEY) and AWS_SECRET_KEY (or AWS_SECRET_ACCESS_KEY)), SystemPropertiesCredentialsProvider: Unable to load AWS credentials from Java system properties (aws.accessKeyId and aws.secretKey), com.amazonaws.auth.profile.ProfileCredentialsProvider@5c42bfdb: No AWS profile named 'default', com.amazonaws.auth.EC2ContainerCredentialsProviderWrapper@11824a44: Unable to load credentials from service endpoint]] with root cause
+
+com.amazonaws.SdkClientException: Unable to load AWS credentials from any provider in the chain: [EnvironmentVariableCredentialsProvider: Unable to load AWS credentials from environment variables (AWS_ACCESS_KEY_ID (or AWS_ACCESS_KEY) and AWS_SECRET_KEY (or AWS_SECRET_ACCESS_KEY)), SystemPropertiesCredentialsProvider: Unable to load AWS credentials from Java system properties (aws.accessKeyId and aws.secretKey), com.amazonaws.auth.profile.ProfileCredentialsProvider@5c42bfdb: No AWS profile named 'default', com.amazonaws.auth.EC2ContainerCredentialsProviderWrapper@11824a44: Unable to load credentials from service endpoint]
+	at com.amazonaws.auth.AWSCredentialsProviderChain.getCredentials(AWSCredentialsProviderChain.java:136) ~[aws-java-sdk-core-1.11.523.jar:na]
+	at com.amazonaws.http.AmazonHttpClient$RequestExecutor.getCredentialsFromContext(AmazonHttpClient.java:1225) ~[aws-java-sdk-core-1.11.523.jar:na]
+	at com.amazonaws.http.AmazonHttpClient$RequestExecutor.runBeforeRequestHandlers(AmazonHttpClient.java:801) ~[aws-java-sdk-core-1.11.523.jar:na]
+	at com.amazonaws.http.AmazonHttpClient$RequestExecutor.doExecute(AmazonHttpClient.java:751) ~[aws-java-sdk-core-1.11.523.jar:na]
+	at com.amazonaws.http.AmazonHttpClient$RequestExecutor.executeWithTimer(AmazonHttpClient.java:744) ~[aws-java-sdk-core-1.11.523.jar:na]
+	at com.amazonaws.http.AmazonHttpClient$RequestExecutor.execute(AmazonHttpClient.java:726) ~[aws-java-sdk-core-1.11.523.jar:na]
+	at com.amazonaws.http.AmazonHttpClient$RequestExecutor.access$500(AmazonHttpClient.java:686) ~[aws-java-sdk-core-1.11.523.jar:na]
+	at com.amazonaws.http.AmazonHttpClient$RequestExecutionBuilderImpl.execute(AmazonHttpClient.java:668) ~[aws-java-sdk-core-1.11.523.jar:na]
+	at com.amazonaws.http.AmazonHttpClient.execute(AmazonHttpClient.java:532) ~[aws-java-sdk-core-1.11.523.jar:na]
+	at com.amazonaws.http.AmazonHttpClient.execute(AmazonHttpClient.java:512) ~[aws-java-sdk-core-1.11.523.jar:na]
+	at com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient.doInvoke(AmazonDynamoDBClient.java:4230) ~[aws-java-sdk-dynamodb-1.11.523.jar:na]
+	at com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient.invoke(AmazonDynamoDBClient.java:4197) ~[aws-java-sdk-dynamodb-1.11.523.jar:na]
+	at com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient.executeGetItem(AmazonDynamoDBClient.java:2032) ~[aws-java-sdk-dynamodb-1.11.523.jar:na]
+	at com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient.getItem(AmazonDynamoDBClient.java:1999) ~[aws-java-sdk-dynamodb-1.11.523.jar:na]
+	at com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper.load(DynamoDBMapper.java:415) ~[aws-java-sdk-dynamodb-1.11.523.jar:na]
+	at com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper.load(DynamoDBMapper.java:432) ~[aws-java-sdk-dynamodb-1.11.523.jar:na]
+	at com.amazonaws.services.dynamodbv2.datamodeling.AbstractDynamoDBMapper.load(AbstractDynamoDBMapper.java:80) ~[aws-java-sdk-dynamodb-1.11.523.jar:na]
+	at fourmeal.service.FourMealService.getMeal(FourMealService.java:21) ~[classes/:na]
+	at fourmeal.rest.FourMealApi.getMeal(FourMealApi.java:39) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:209) ~[spring-web-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:136) ~[spring-web-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102) ~[spring-webmvc-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:891) ~[spring-webmvc-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:797) ~[spring-webmvc-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:991) ~[spring-webmvc-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:925) ~[spring-webmvc-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:974) ~[spring-webmvc-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:866) ~[spring-webmvc-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:635) ~[tomcat-embed-core-8.5.34.jar:8.5.34]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:851) ~[spring-webmvc-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742) ~[tomcat-embed-core-8.5.34.jar:8.5.34]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[tomcat-embed-core-8.5.34.jar:8.5.34]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.34.jar:8.5.34]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52) ~[tomcat-embed-websocket-8.5.34.jar:8.5.34]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.34.jar:8.5.34]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.34.jar:8.5.34]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99) ~[spring-web-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.34.jar:8.5.34]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.34.jar:8.5.34]
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:109) ~[spring-web-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.34.jar:8.5.34]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.34.jar:8.5.34]
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93) ~[spring-web-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.34.jar:8.5.34]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.34.jar:8.5.34]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200) ~[spring-web-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.34.jar:8.5.34]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.34.jar:8.5.34]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198) ~[tomcat-embed-core-8.5.34.jar:8.5.34]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) ~[tomcat-embed-core-8.5.34.jar:8.5.34]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:493) ~[tomcat-embed-core-8.5.34.jar:8.5.34]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140) ~[tomcat-embed-core-8.5.34.jar:8.5.34]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81) ~[tomcat-embed-core-8.5.34.jar:8.5.34]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87) ~[tomcat-embed-core-8.5.34.jar:8.5.34]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342) ~[tomcat-embed-core-8.5.34.jar:8.5.34]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:800) ~[tomcat-embed-core-8.5.34.jar:8.5.34]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66) ~[tomcat-embed-core-8.5.34.jar:8.5.34]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:806) ~[tomcat-embed-core-8.5.34.jar:8.5.34]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1498) ~[tomcat-embed-core-8.5.34.jar:8.5.34]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-8.5.34.jar:8.5.34]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) ~[na:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-8.5.34.jar:8.5.34]
+	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
+
+2020-06-09 09:36:15.232  INFO 55521 --- [Thread-3] ConfigServletWebServerApplicationContext : Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@d97e22a: startup date [Tue Jun 09 09:35:47 CDT 2020]; root of context hierarchy
+2020-06-09 09:36:15.234  INFO 55521 --- [Thread-3] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2020-06-09 09:37:06.421  INFO 55588 --- [main] fourmeal.Application                     : Starting Application on f8ffc24c7eba.ant.amazon.com with PID 55588 (/Users/colbywar/Dropbox/dev/spring/fourmeal/target/classes started by colbywar in /Users/colbywar/Dropbox/dev/spring/fourmeal)
+2020-06-09 09:37:06.424  INFO 55588 --- [main] fourmeal.Application                     : No active profile set, falling back to default profiles: default
+2020-06-09 09:37:06.458  INFO 55588 --- [main] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@106d8d63: startup date [Tue Jun 09 09:37:06 CDT 2020]; root of context hierarchy
+2020-06-09 09:37:07.354  INFO 55588 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 5000 (http)
+2020-06-09 09:37:07.377  INFO 55588 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-06-09 09:37:07.377  INFO 55588 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.34
+2020-06-09 09:37:07.387  INFO 55588 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/colbywar/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+2020-06-09 09:37:07.467  INFO 55588 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-06-09 09:37:07.467  INFO 55588 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1009 ms
+2020-06-09 09:37:07.554  INFO 55588 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2020-06-09 09:37:07.558  INFO 55588 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2020-06-09 09:37:07.559  INFO 55588 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2020-06-09 09:37:07.559  INFO 55588 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2020-06-09 09:37:07.560  INFO 55588 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2020-06-09 09:37:07.690  INFO 55588 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-06-09 09:37:07.877  INFO 55588 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@106d8d63: startup date [Tue Jun 09 09:37:06 CDT 2020]; root of context hierarchy
+2020-06-09 09:37:07.941  INFO 55588 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/meal],methods=[POST]}" onto public fourmeal.domain.Meal fourmeal.rest.FourMealApi.newMeal(fourmeal.domain.Meal)
+2020-06-09 09:37:07.942  INFO 55588 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/ping],methods=[GET]}" onto public org.springframework.http.ResponseEntity fourmeal.rest.FourMealApi.healthCheck()
+2020-06-09 09:37:07.942  INFO 55588 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/meal],methods=[GET]}" onto public fourmeal.domain.Meal fourmeal.rest.FourMealApi.getMeal(java.lang.String)
+2020-06-09 09:37:07.943  INFO 55588 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/meal],methods=[PUT]}" onto public fourmeal.domain.Meal fourmeal.rest.FourMealApi.replaceMeal(java.lang.String,fourmeal.domain.Meal)
+2020-06-09 09:37:07.943  INFO 55588 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/meal/{id}],methods=[DELETE]}" onto public org.springframework.http.ResponseEntity fourmeal.rest.FourMealApi.deleteMeal(java.lang.String)
+2020-06-09 09:37:07.943  INFO 55588 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/cpu-stress],methods=[GET]}" onto public org.springframework.http.ResponseEntity fourmeal.rest.FourMealApi.getMealTest(long)
+2020-06-09 09:37:07.946  INFO 55588 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2020-06-09 09:37:07.946  INFO 55588 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2020-06-09 09:37:07.967  INFO 55588 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-06-09 09:37:07.967  INFO 55588 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-06-09 09:37:08.075  INFO 55588 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2020-06-09 09:37:08.126  INFO 55588 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 5000 (http) with context path ''
+2020-06-09 09:37:08.131  INFO 55588 --- [main] fourmeal.Application                     : Started Application in 2.112 seconds (JVM running for 4.867)
+2020-06-09 09:37:10.356  INFO 55588 --- [http-nio-5000-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2020-06-09 09:37:10.356  INFO 55588 --- [http-nio-5000-exec-2] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2020-06-09 09:37:10.371  INFO 55588 --- [http-nio-5000-exec-2] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 15 ms
+2020-06-09 09:37:10.397  INFO 55588 --- [http-nio-5000-exec-2] fourmeal.service.FourMealService         : Retrieving meal: colbywar:spaghetti-dinner
+2020-06-09 09:38:53.633  WARN 55588 --- [http-nio-5000-exec-5] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character (']' (code 93)): expected a value
+ at [Source: (PushbackInputStream); line: 20, column: 4]; nested exception is com.fasterxml.jackson.databind.JsonMappingException: Unexpected character (']' (code 93)): expected a value
+ at [Source: (PushbackInputStream); line: 20, column: 4]
+ at [Source: (PushbackInputStream); line: 20, column: 3] (through reference chain: fourmeal.domain.Meal["mealitem"])]
+2020-06-09 09:39:16.217  INFO 55588 --- [http-nio-5000-exec-7] fourmeal.service.FourMealService         : Creating new meal: colbywar:hamburger-dinner
+2020-06-09 09:39:30.342  INFO 55588 --- [http-nio-5000-exec-8] fourmeal.service.FourMealService         : Retrieving meal: colbywar:hamburger-dinner
+2020-06-09 09:39:50.803  INFO 55588 --- [Thread-3] ConfigServletWebServerApplicationContext : Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@106d8d63: startup date [Tue Jun 09 09:37:06 CDT 2020]; root of context hierarchy
+2020-06-09 09:39:50.805  INFO 55588 --- [Thread-3] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2020-06-09 10:11:01.555  INFO 57928 --- [main] fourmeal.Application                     : Starting Application on f8ffc24c7eba.ant.amazon.com with PID 57928 (/Users/colbywar/Dropbox/dev/spring/fourmeal/target/classes started by colbywar in /Users/colbywar/Dropbox/dev/spring/fourmeal)
+2020-06-09 10:11:01.559  INFO 57928 --- [main] fourmeal.Application                     : No active profile set, falling back to default profiles: default
+2020-06-09 10:11:01.597  INFO 57928 --- [main] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3bafafc4: startup date [Tue Jun 09 10:11:01 CDT 2020]; root of context hierarchy
+2020-06-09 10:11:02.440  INFO 57928 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 5000 (http)
+2020-06-09 10:11:02.466  INFO 57928 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-06-09 10:11:02.467  INFO 57928 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.34
+2020-06-09 10:11:02.476  INFO 57928 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/colbywar/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+2020-06-09 10:11:02.548  INFO 57928 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-06-09 10:11:02.548  INFO 57928 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 951 ms
+2020-06-09 10:11:02.597  INFO 57928 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2020-06-09 10:11:02.601  INFO 57928 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2020-06-09 10:11:02.601  INFO 57928 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2020-06-09 10:11:02.601  INFO 57928 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2020-06-09 10:11:02.601  INFO 57928 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2020-06-09 10:11:02.704  INFO 57928 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-06-09 10:11:02.848  INFO 57928 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3bafafc4: startup date [Tue Jun 09 10:11:01 CDT 2020]; root of context hierarchy
+2020-06-09 10:11:02.907  INFO 57928 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/ping],methods=[GET]}" onto public org.springframework.http.ResponseEntity fourmeal.rest.FourMealApi.healthCheck()
+2020-06-09 10:11:02.908  INFO 57928 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/meal],methods=[POST]}" onto public fourmeal.domain.Meal fourmeal.rest.FourMealApi.newMeal(fourmeal.domain.Meal)
+2020-06-09 10:11:02.908  INFO 57928 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/meal],methods=[GET]}" onto public fourmeal.domain.Meal fourmeal.rest.FourMealApi.getMeal(java.lang.String)
+2020-06-09 10:11:02.909  INFO 57928 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/meal],methods=[PUT]}" onto public fourmeal.domain.Meal fourmeal.rest.FourMealApi.replaceMeal(java.lang.String,fourmeal.domain.Meal)
+2020-06-09 10:11:02.909  INFO 57928 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/meal/{id}],methods=[DELETE]}" onto public org.springframework.http.ResponseEntity fourmeal.rest.FourMealApi.deleteMeal(java.lang.String)
+2020-06-09 10:11:02.909  INFO 57928 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/cpu-stress],methods=[GET]}" onto public org.springframework.http.ResponseEntity fourmeal.rest.FourMealApi.getMealTest(long)
+2020-06-09 10:11:02.912  INFO 57928 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2020-06-09 10:11:02.912  INFO 57928 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2020-06-09 10:11:02.931  INFO 57928 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-06-09 10:11:02.931  INFO 57928 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-06-09 10:11:03.040  INFO 57928 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2020-06-09 10:11:03.096  INFO 57928 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 5000 (http) with context path ''
+2020-06-09 10:11:03.101  INFO 57928 --- [main] fourmeal.Application                     : Started Application in 2.255 seconds (JVM running for 4.998)
+2020-06-09 10:11:09.318  INFO 57928 --- [http-nio-5000-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2020-06-09 10:11:09.318  INFO 57928 --- [http-nio-5000-exec-2] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2020-06-09 10:11:09.331  INFO 57928 --- [http-nio-5000-exec-2] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 13 ms
+2020-06-09 10:11:09.355  INFO 57928 --- [http-nio-5000-exec-2] fourmeal.service.FourMealService         : Retrieving meal: colbywar:hamburger-dinner
+2020-06-09 10:11:15.032  INFO 57928 --- [Thread-3] ConfigServletWebServerApplicationContext : Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3bafafc4: startup date [Tue Jun 09 10:11:01 CDT 2020]; root of context hierarchy
+2020-06-09 10:11:15.036  INFO 57928 --- [Thread-3] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown

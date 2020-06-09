@@ -28,7 +28,7 @@ essentially marking different items like meals, meal-items.
 * Spring Boot Application
 * Maven used to build, run (pom.xml)
   - mvn spring-boot:run // it uses maven spring plugin to build and execute
-  - quick test: http://localhost:5000/test 
+  - quick test: http://localhost:5000/ping
 * Uses AWS SDK.  Primarily accessing DynamoDB
 * To ssh bounce from public host (bastion) to private subnet must have ssh forwarding:
 https://developer.github.com/v3/guides/using-ssh-agent-forwarding/
@@ -52,9 +52,30 @@ git remote add origin https://git-codecommit.us-west-1.amazonaws.com/v1/repos/fo
 git push --set-upstream origin master
 (When prompted in a push, choose Deny, otherwise reference URL above to fix Keychain -- Thanks Mac!)
 
+### How deploy Fargate instance
+* Need to ensure you have a clean maven build and package along with a new docker image
+```
+//Clean and package app
+mvn clean
+mvn package // should create a jar in target folder -- verify date
+mvn spring-boot:run
+
+//Cleanup docker containers
+docker rm <container id>
+docker images //lists images -- remove
+
+//Build docker image
+docker build -t colbyjax/fourmeal-app .
+docker login
+docker push colbyjax/fourmeal-app
+
+
+```
 ### Docker Notes
-* Build Image - docker build -t fourmeal-app .
-* Run image to test it - docker run -p 5000:5000 --name fourmeal -d colbywar/fourmeal-app
+* List containers `docker ps -a`
+* List images `docker images`
+* Build Image - `docker build -t colbyjax/fourmeal-app .`
+* Run image to test it - docker run -p 5000:5000 --name fourmeal -d colbyjax/fourmeal-app
   - curl http://localhost:5000/ping -- Should return with pong
 * Tag image - docker tag fourmeal-app 757095936153.dkr.ecr.us-west-1.amazonaws.com/fourmeal-repository
 * Do an AWS logging via cli to ECR - aws ecr get-login --no-include-email --region us-west-1 --profile fourmeal-dynamo
