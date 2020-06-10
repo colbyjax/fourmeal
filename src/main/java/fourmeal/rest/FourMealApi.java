@@ -18,8 +18,14 @@ public class FourMealApi {
     private FourMealService fourMealService;
 
     /** Base Call to ensure API is responding -- Healthcheck **/
-    @GetMapping("/ping")
+    @GetMapping("/")
     public ResponseEntity healthCheck() {
+        logger.debug("HEALTHCHECK");
+        return new ResponseEntity("OK", HttpStatus.OK);
+    }
+
+    @GetMapping("/ping")
+    public ResponseEntity ping() {
        logger.info("FourMeal playing ping pong");
        return new ResponseEntity("pong", HttpStatus.OK);
     }

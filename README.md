@@ -1,9 +1,6 @@
 # TODO
-- S3 files not available to burner account
-- Add AAPI Gateway CloudFormation
-- Add Dynamo Cloud Formation
+- Add Unit Tests
 
- 
 
 # FourMeal API
 Service designed to store meals along with their ingredients in an informal manner.  Tags are a first class citizen, 
